@@ -1,0 +1,163 @@
+<div class="col-sm-12 col-md-9 col-md-offset-3 col-lg-6 col-lg-offset-3 col-content">
+<div class="main-blog-section section" id="main-blog-section"><div class="widget Blog" data-version="1" id="Blog1">
+<div class="blog-posts hfeed">
+<!--Can't find substitution for tag [defaultAdStart]-->
+
+                        <div class="date-outer">
+                      
+<h2 class="date-header">
+<span>
+Thursday, 2 September 2021
+</span>
+</h2>
+
+                        <div class="date-posts">
+                      
+<div class="post-outer">
+<div class="article-holder">
+<article class="post hentry">
+<a name="5080818870154136167"></a>
+<div class="post-header-line-1"></div>
+<div class="post-body entry-content">
+<h2 class="post-title entry-title">
+<a href="https://halove23.blogspot.com/2021/09/zdi-21-1053-bypassing-windows-lock.html">
+ZDI-21-1053: Bypassing Windows Lock Screen
+</a>
+</h2>
+<p class="post-date-author">
+<i class="fa fa-calendar"></i>
+                          &nbsp;&nbsp;
+                          22:52
+                          &nbsp;&nbsp;
+                          <i class="fa fa-user"></i>
+                          &nbsp;&nbsp;
+                          
+<a href="https://www.blogger.com/profile/17005423426792828985" rel="author" title="author profile">
+halov
+</a>
+</p>
+<hr>
+<p>&nbsp;</p><p>In April 2021, I discovered a security flaw in Windows Recovery Environment Agent which allowed an unauthenticated attacker to gain elevated access to a windows machine in a locked state.</p><p>Those research were based on Jonas findings related to bypassing lockscreen (you can find more here -&nbsp;https://twitter.com/jonaslyk/status/1301245145568997376?lang=en). He described a flaw, which allowed lock screen bypass using Ease of Access feature.</p><p>Looking at CVE-2020-1398, the bug existed in sticky keys pop-up&nbsp;</p><p></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-yqcIhJmqDLo/YTEqRqYTZcI/AAAAAAAABQY/VEU27jSlz_U90v-KFOMC-KbDV1snzSWnQCLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="219" data-original-width="512" src="https://lh3.googleusercontent.com/-yqcIhJmqDLo/YTEqRqYTZcI/AAAAAAAABQY/VEU27jSlz_U90v-KFOMC-KbDV1snzSWnQCLcBGAsYHQ/s16000/image.png"></a></div><div class="separator" style="clear: both; text-align: center;"><br></div><p></p><p class="MsoNormal" style="margin-bottom: 0cm;">By clicking the link, an instance
+of settings will be spawned in the background. Then you’ll be simply able to
+bypass the lockscreen. Microsoft has patched the issue by removing the
+link as it no longer appears when being spawned in a lockscreen environment.<o:p></o:p></p><p class="MsoNormal" style="margin-bottom: 0cm;">And to be clear this bug and its descendants need a condition. On Windows 10 machine, at least one user must have a Microsoft account linked to his local account. Otherwise, the bug isn't exploitable.</p><p class="MsoNormal" style="margin-bottom: 0cm;">Now, I'll try to give a short explanation for you humans. Cause if I showed the video PoC you will be confused as hell.</p><p class="MsoNormal" style="margin-bottom: 0cm;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-6dS1jHb-XhI/YTEr7-jpVeI/AAAAAAAABQg/6iiPpafS1ugerVFR9b_UxafC4k_2FpyiACLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="330" data-original-width="601" src="https://lh3.googleusercontent.com/-6dS1jHb-XhI/YTEr7-jpVeI/AAAAAAAABQg/6iiPpafS1ugerVFR9b_UxafC4k_2FpyiACLcBGAsYHQ/s16000/image.png"></a></div><p class="MsoNormal" style="margin-bottom: 0cm;"><br></p>As you can see above, Windows can allow you to reset your password/pin if you had access to your Microsoft account. If you click on "I forgot my PIN" you will be redirected to something like this<div><br></div><div><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-oLOHzB5yyo4/YTEt3UR3WrI/AAAAAAAABRI/fvSnrpMXnwcn_qJt-3OCrG8cpNsnK9p9gCLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="847" data-original-width="876" src="https://lh3.googleusercontent.com/-oLOHzB5yyo4/YTEt3UR3WrI/AAAAAAAABRI/fvSnrpMXnwcn_qJt-3OCrG8cpNsnK9p9gCLcBGAsYHQ/s16000/image.png"></a></div><div class="separator" style="clear: both; text-align: center;"><br></div><div class="separator" style="clear: both; text-align: center;"><p class="MsoNormal" style="margin-bottom: 0cm; text-align: left;">I have noticed a weird kind of behaviour when typing a wrong password, a small arrow next to the email address will be visible.<br>This behaviour exists for some unknown reason, maybe a bug ? feature ? probably a bug.(apparently its a feature after the patch)</p><p class="MsoNormal" style="margin-bottom: 0cm; text-align: left;"></p><div class="separator" style="clear: both;"><a href="https://lh3.googleusercontent.com/-ov4c9bL2B-I/YTEuZYMrKqI/AAAAAAAABRQ/Yhc4alhup4MK-Dnm05DHtFfQYIVF7l-0ACLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="330" data-original-width="602" src="https://lh3.googleusercontent.com/-ov4c9bL2B-I/YTEuZYMrKqI/AAAAAAAABRQ/Yhc4alhup4MK-Dnm05DHtFfQYIVF7l-0ACLcBGAsYHQ/s16000/image.png"></a></div><p class="MsoNormal" style="margin-bottom: 0cm;"><br></p><p></p><p class="MsoNormal" style="margin-bottom: 0cm; text-align: left;">Clicking there will take us to another page.As we can see that we’re allowed to login with another email address or even creating a new account.</p><p class="MsoNormal" style="margin-bottom: 0cm; text-align: left;"></p><div class="separator" style="clear: both;"><a href="https://lh3.googleusercontent.com/-C7o253Jui3w/YTEuw8XKvgI/AAAAAAAABRY/tKpRxnsHBcgJFCRI2UxE6hlsV8xN1JlwACLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="331" data-original-width="601" src="https://lh3.googleusercontent.com/-C7o253Jui3w/YTEuw8XKvgI/AAAAAAAABRY/tKpRxnsHBcgJFCRI2UxE6hlsV8xN1JlwACLcBGAsYHQ/s16000/image.png"></a></div><p class="MsoNormal" style="margin-bottom: 0cm;"><br></p><p></p><p class="MsoNormal" style="text-align: left;">I tried to create a new account, login with it but it fails since the account doesn’t belong to the one we are trying to reset its password.<o:p></o:p></p><p class="MsoNormal" style="text-align: left;">However, this small button right there attracted my attention and hmmm it's interesting<o:p></o:p></p><p class="MsoNormal" style="text-align: left;"></p><div class="separator" style="clear: both;"><a href="https://lh3.googleusercontent.com/-fz028CE9nC8/YTEvJocQjzI/AAAAAAAABRg/o1LXm1SuAYMQSqRrTFY5_iHWxMJOnZzdwCLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="175" data-original-width="362" src="https://lh3.googleusercontent.com/-fz028CE9nC8/YTEvJocQjzI/AAAAAAAABRg/o1LXm1SuAYMQSqRrTFY5_iHWxMJOnZzdwCLcBGAsYHQ/s16000/image.png"></a></div><p></p><p class="MsoNormal" style="text-align: left;">By clicking on it we’ll see another pop-up dialogue, that has a link on it.</p><p class="MsoNormal" style="text-align: left;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-6CIXm8gQD7w/YTEv9aYKhJI/AAAAAAAABRs/O_HMKq31hPcfk2ndKsoVuulJCiTuWsg5gCLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="578" data-original-width="602" src="https://lh3.googleusercontent.com/-6CIXm8gQD7w/YTEv9aYKhJI/AAAAAAAABRs/O_HMKq31hPcfk2ndKsoVuulJCiTuWsg5gCLcBGAsYHQ/s16000/image.png"></a></div><p></p><p class="MsoNormal" style="text-align: left;">Hmmm very interesting, a link ? in the lockscreen ? weird
+right. As usual, we’ll click on it and see what happen… clicking on it did
+absolutely nothing, BUT maybe something was spawned in the background and we
+can’t see it, as Jonas described in his lockscreen bypass, he used to enable
+narrator in order to navigate in background apps. I enabled narrator and got
+some very interesting results.<o:p></o:p></p><p class="MsoNormal" style="text-align: left;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-haqsinpz9rM/YTEwPfMoxnI/AAAAAAAABR0/tYOOY8qcZrQ-7Pl82AFk2qrYU--fhlEUwCLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="334" data-original-width="602" src="https://lh3.googleusercontent.com/-haqsinpz9rM/YTEwPfMoxnI/AAAAAAAABR0/tYOOY8qcZrQ-7Pl82AFk2qrYU--fhlEUwCLcBGAsYHQ/s16000/image.png"></a></div><div class="separator" style="clear: both; text-align: center;"><br></div><p></p><p class="MsoNormal" style="text-align: left;">When enabled and I click on the button, you can hear
+narrator saying “how do you want to open this”, and narrator’s focus is on
+something else not in Microsoft account window. We spawned an “Open With”
+window with narrator’s focus on it in the background; Typically the “Open With”
+window looks like this<o:p></o:p></p><div class="separator" style="clear: both; text-align: left;"></div><p class="MsoNormal" style="text-align: left;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-76a1NJpoXNE/YTEwfcsqYLI/AAAAAAAABR8/dUmO6-s3TCgEKxLbPhPm-fOQQK1CS6tmACLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="520" data-original-width="393" src="https://lh3.googleusercontent.com/-76a1NJpoXNE/YTEwfcsqYLI/AAAAAAAABR8/dUmO6-s3TCgEKxLbPhPm-fOQQK1CS6tmACLcBGAsYHQ/s16000/image.png"></a></div><div class="separator" style="clear: both; text-align: center;"><br></div><p></p><p class="MsoNormal" style="text-align: left;">But only has two options the first is MS Edge and the second
+one is Internet explorer, we’ll dig with MS Edge since it’s selected by default,
+please <b><u>NOTE</u></b> that you might to <b><u><span style="color: red;">HOLD</span></u></b><span style="color: red;"> </span>Caps lock while using arrow keys to navigate. <br><br>After tests, as soon as we select OK we lose narrator’s focus and we’re no
+longer able to control background window.</p><p class="MsoNormal" style="text-align: left;"><o:p></o:p></p><div class="separator" style="clear: both;">
+
+<p class="MsoNormal" style="text-align: left;">We can have narrator’s focus again as soon as we repeat
+steps described above, we’ll have narrator’s focus again. But this time we’ll
+have it on MS Edge browser, at this point, we will need to elevate our privileges,
+the only way I can think of to execute arbitrary commands is to spawn a
+settings instance. This can be done by spawning another a new InPrivate window,
+(please NOTE: you won’t be able to see any of those, and things will be
+completely invisible you must use your ear to hear what narrator say and use it
+to navigate);</p><p class="MsoNormal" style="text-align: left;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-mbMdkev3W6g/YTExCGe-EsI/AAAAAAAABSE/5dg73C94m383IhuB9JW0PgntxTr1j32kQCLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="733" data-original-width="314" src="https://lh3.googleusercontent.com/-mbMdkev3W6g/YTExCGe-EsI/AAAAAAAABSE/5dg73C94m383IhuB9JW0PgntxTr1j32kQCLcBGAsYHQ/s16000/image.png"></a></div><div class="separator" style="clear: both; text-align: center;"><br></div><p></p><p class="MsoNormal" style="text-align: left;">Then you might need to go on “More details”<o:p></o:p></p><p class="MsoNormal" style="text-align: left;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-VZBC0wq1zLM/YTExKMFTUnI/AAAAAAAABSI/_tAEcnKr9FIGLfkHyEadCRQQo9-cAGcHQCLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="312" data-original-width="601" src="https://lh3.googleusercontent.com/-VZBC0wq1zLM/YTExKMFTUnI/AAAAAAAABSI/_tAEcnKr9FIGLfkHyEadCRQQo9-cAGcHQCLcBGAsYHQ/s16000/image.png"></a></div><div class="separator" style="clear: both; text-align: center;"><br></div><p></p><p class="MsoNormal" style="text-align: left;">Press enter and navigate to settings<o:p></o:p></p><div class="separator" style="clear: both; text-align: center;"></div><p class="MsoNormal" style="text-align: left;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-80cwSMrYB9o/YTExTN5jg0I/AAAAAAAABSQ/d4xq36BUETMVDJ9EZNO9SEXZbZT46A4TwCLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="265" data-original-width="601" src="https://lh3.googleusercontent.com/-80cwSMrYB9o/YTExTN5jg0I/AAAAAAAABSQ/d4xq36BUETMVDJ9EZNO9SEXZbZT46A4TwCLcBGAsYHQ/s16000/image.png"></a></div><div class="separator" style="clear: both; text-align: center;"><br></div><p></p><p class="MsoNormal" style="text-align: left;">Which will redirect us to another page, keep navigating
+until you reach “Windows Diagnostic data setting” and then navigate using
+narrator to open and click enter again<o:p></o:p></p><div class="separator" style="clear: both; text-align: center;"></div><p class="MsoNormal" style="text-align: left;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-FzRPZs6SsEA/YTExa4guG1I/AAAAAAAABSY/rGBfonHen8oDBDm0qximCHxjSwRXN_8XgCLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="390" data-original-width="601" src="https://lh3.googleusercontent.com/-FzRPZs6SsEA/YTExa4guG1I/AAAAAAAABSY/rGBfonHen8oDBDm0qximCHxjSwRXN_8XgCLcBGAsYHQ/s16000/image.png"></a></div><p></p><p class="MsoNormal" style="text-align: left;">In settings navigate to “Home” and press enter<o:p></o:p></p><p class="MsoNormal" style="text-align: left;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-MCpdqXd2Cq4/YTExhaqjUoI/AAAAAAAABSc/k6djdNrzZL0EEnL7OIHnX29aQrr2RZiTACLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="379" data-original-width="602" src="https://lh3.googleusercontent.com/-MCpdqXd2Cq4/YTExhaqjUoI/AAAAAAAABSc/k6djdNrzZL0EEnL7OIHnX29aQrr2RZiTACLcBGAsYHQ/s16000/image.png"></a></div><p></p><p class="MsoNormal" style="text-align: left;">Then navigate to “Devices”<o:p></o:p></p><p class="MsoNormal" style="text-align: left;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-kWhhzU7EQV8/YTExmemuidI/AAAAAAAABSk/-LQfD8-m4m0_mSlOiNdZ5mLzCE7ATtO-wCLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="212" data-original-width="602" src="https://lh3.googleusercontent.com/-kWhhzU7EQV8/YTExmemuidI/AAAAAAAABSk/-LQfD8-m4m0_mSlOiNdZ5mLzCE7ATtO-wCLcBGAsYHQ/s16000/image.png"></a></div><br><br><p></p><p class="MsoNormal" style="text-align: left;">Navigate to Autoplay-&gt;Choose Autoplay Defaults-&gt;”Open
+folder to view files(File explorer)<o:p></o:p></p><p class="MsoNormal" style="text-align: left;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-NjjOwtqGGvA/YTExr3uEbFI/AAAAAAAABSs/pieqYldHQ10SudssUe5m9s_i_-6sN9aBwCLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="253" data-original-width="602" src="https://lh3.googleusercontent.com/-NjjOwtqGGvA/YTExr3uEbFI/AAAAAAAABSs/pieqYldHQ10SudssUe5m9s_i_-6sN9aBwCLcBGAsYHQ/s16000/image.png"></a></div><div class="separator" style="clear: both; text-align: center;"><br></div><p></p><p class="MsoNormal" style="text-align: left;">At this point, you might need to plug a USB device into the
+device. As soon as plugged narrator will have his focus on file explorer, now
+you can execute anything in the USB.<br>In order to verify our findings, I made a simple batch
+script which will verify our findings<br></p><p class="MsoNormal" style="text-align: left;">mkdir c:\poc<br>whoami /all &gt;&nbsp; c:\poc\whoami.log</p><p class="MsoNormal" style="text-align: left;">And after the execution, we can observe
+a success</p><div class="separator" style="clear: both;"><p class="MsoNormal" style="margin-bottom: 0cm; text-align: left;"><o:p></o:p></p></div><p class="MsoNormal" style="text-align: left;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-xzkDW0uERUY/YTEyH5LOf8I/AAAAAAAABS4/cjqyTMbL7m43CS2IFu4fT77DhnO9uwqIACLcBGAsYHQ/image.png" style="margin-left: 1em; margin-right: 1em;"><img data-original-height="420" data-original-width="602" src="https://lh3.googleusercontent.com/-xzkDW0uERUY/YTEyH5LOf8I/AAAAAAAABS4/cjqyTMbL7m43CS2IFu4fT77DhnO9uwqIACLcBGAsYHQ/s16000/image.png"></a></div><br><p></p><p class="MsoNormal" style="margin-bottom: 0cm; text-align: left;">Elevating privileges is easy since
+we’re marked as “NT AUTHORITY\Authenticated Users” as the majority of EoPs
+are reachable from those privileges.</p><p class="MsoNormal" style="text-align: left;">PoC -&nbsp;https://youtu.be/9rXXfWN0h6A<br><br></p><p class="MsoNormal" style="text-align: left;"><br></p><p class="MsoNormal" style="text-align: left;">(Also, looking for some opportunities to study computer science in UK or anywhere else, if you can help reach me out on my twitter.)</p><div class="separator" style="clear: both; text-align: center;"></div></div><p class="MsoNormal" style="text-align: left;"><o:p></o:p></p><p class="MsoNormal" style="text-align: left;"><br><br></p><p class="MsoNormal" style="text-align: left;"><br></p></div><div><div class="separator" style="clear: both; text-align: center;"><div class="separator" style="clear: both; text-align: center;"><br></div></div></div></div>
+<div style="clear:both;"></div>
+<div class="post-share-buttons">
+<a class="goog-inline-block share-button sb-email" href="https://www.blogger.com/share-post.g?blogID=8098028506260465518&amp;postID=5080818870154136167&amp;target=email" target="_blank" title="Email This">
+<span class="share-button-link-text">
+Email This
+</span>
+</a>
+<a class="goog-inline-block share-button sb-blog" href="https://www.blogger.com/share-post.g?blogID=8098028506260465518&amp;postID=5080818870154136167&amp;target=blog" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=270,width=475&quot;); return false;" target="_blank" title="BlogThis!">
+<span class="share-button-link-text">
+BlogThis!
+</span>
+</a>
+<a class="goog-inline-block share-button sb-twitter" href="https://www.blogger.com/share-post.g?blogID=8098028506260465518&amp;postID=5080818870154136167&amp;target=twitter" target="_blank" title="Share to Twitter">
+<span class="share-button-link-text">
+Share to Twitter
+</span>
+</a>
+<a class="goog-inline-block share-button sb-facebook" href="https://www.blogger.com/share-post.g?blogID=8098028506260465518&amp;postID=5080818870154136167&amp;target=facebook" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=430,width=640&quot;); return false;" target="_blank" title="Share to Facebook">
+<span class="share-button-link-text">
+Share to Facebook
+</span>
+</a>
+</div>
+<span class="reaction-buttons">
+</span>
+<div style="clear: both;"></div>
+</div>
+<div class="post-meta">
+</div>
+<div class="post-footer sr-only">
+<div class="post-footer-line post-footer-line-1">
+<span class="post-author vcard">
+<span class="fn">
+<a href="https://www.blogger.com/profile/17005423426792828985" rel="author" title="author profile">
+halov
+</a>
+</span>
+</span>
+<span class="post-timestamp">
+at
+<a class="timestamp-link" href="https://halove23.blogspot.com/2021/09/zdi-21-1053-bypassing-windows-lock.html" rel="bookmark" title="permanent link">
+<abbr class="published" title="2021-09-02T22:52:00+02:00">
+22:52
+</abbr>
+</a>
+</span>
+<span class="post-comment-link">
+</span>
+</div>
+<div class="post-footer-line post-footer-line-2">
+</div>
+</div>
+<div id="related-posts">
+<script type="text/javascript">
+                          removeRelatedDuplicates_thumbs();
+                          printRelatedLabels_thumbs("https://halove23.blogspot.com/2021/09/zdi-21-1053-bypassing-windows-lock.html");
+                        </script>
+</div>
+</article>
+</div>
+<div style="clear: both;"></div>
+<div class="blog-pager" id="blog-pager">
+<span id="blog-pager-older-link">
+<a class="blog-pager-older-link" href="https://halove23.blogspot.com/2021/08/executing-code-in-context-of-trusted.html" id="Blog1_blog-pager-older-link" title="Older Post">
+Older Post
+</a>
+</span>
+<a class="home-link" href="https://halove23.blogspot.com/">
+Home
+</a>
+</div>
+<div class="clear"></div>
+<div class="comments" id="comments">
+<a name="comments"></a>
+<div id="backlinks-container">
+<div id="Blog1_backlinks-container">
+</div>
+</div>
+</div>
+</div>
+
+                      </div></div>
+                    
+<!--Can't find substitution for tag [adEnd]-->
+</div>
+<div style="clear: both;"></div>
+<div class="post-feeds">
+</div>
+</div></div>
+</div>
